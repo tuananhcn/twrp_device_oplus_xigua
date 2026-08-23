@@ -238,7 +238,7 @@ BUILD_BROKEN_PLUGIN_VALIDATION      := soong-libaosprecovery_defaults soong-libg
 TARGET_ARCH                 := arm64
 TARGET_ARCH_VARIANT         := armv8-a
 TARGET_CPU_ABI              := arm64-v8a
-TARGET_CPU_VARIANT          := oryon
+TARGET_CPU_VARIANT          := generic
 
 # A/B
 AB_OTA_PARTITIONS := \
@@ -315,8 +315,8 @@ TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
 # Platform
-TARGET_BOARD_PLATFORM   := sm87xx
-QCOM_BOARD_PLATFORMS    += sm87xx
+TARGET_BOARD_PLATFORM   := sm8550
+QCOM_BOARD_PLATFORMS    += sm8550
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE    := true
