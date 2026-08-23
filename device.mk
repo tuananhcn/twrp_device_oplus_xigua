@@ -49,17 +49,17 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+    android.hardware.boot-service
+#     android.hardware.boot-impl \
 
 PRODUCT_PACKAGES += \
     bootctrl.kalama
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.kalama \
-    libgptutils \
-    libz \
-    libcutils
+# PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+#     bootctrl.kalama \
+#     libgptutils \
+#     libz \
+#     libcutils
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
