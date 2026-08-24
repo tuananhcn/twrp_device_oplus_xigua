@@ -305,8 +305,9 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED  := true
 BOARD_RECOVERYIMAGE_PARTITION_SIZE      := 104857600
 
 BOARD_SUPER_PARTITION_SIZE                  := 9126805504
-BOARD_SUPER_PARTITION_GROUPS                := oneplus_dynamic_partitions
-BOARD_ONEPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_dlkm system_ext product vendor vendor_dlkm odm my_product my_company my_carrier my_region my_bigball my_heytap my_stock my_preload my_manifest my_engineering my_colorospro
+BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
 BOARD_ONEPLUS_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
