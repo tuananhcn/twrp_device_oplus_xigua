@@ -306,7 +306,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE      := 104857600
 
 BOARD_SUPER_PARTITION_SIZE                  := 9126805504
 BOARD_SUPER_PARTITION_GROUPS                := oneplus_dynamic_partitions
-BOARD_ONEPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system_dlkm system_dlkm system_ext system_ext product product vendor vendor vendor_dlkm vendor_dlkm odm odm my_product my_product my_company my_company my_carrier my_carrier my_region my_region my_bigball my_bigball my_heytap my_heytap my_stock my_stock my_preload my_preload my_manifest my_manifest my_engineering my_engineering my_colorospro my_colorospro
+BOARD_ONEPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_dlkm system_ext product vendor vendor_dlkm odm my_product my_company my_carrier my_region my_bigball my_heytap my_stock my_preload my_manifest my_engineering my_colorospro
 BOARD_ONEPLUS_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
