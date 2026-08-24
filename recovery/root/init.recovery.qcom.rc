@@ -41,10 +41,10 @@ on fs
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    setprop ro.separate.soft ${ro.boot.prjname}
+    # setprop ro.separate.soft ${ro.boot.prjname}
     # Mount firmware
-    mkdir /vendor/firmware_mnt
-    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /vendor/firmware_mnt ro
+    # mkdir /vendor/firmware_mnt
+    # mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /vendor/firmware_mnt ro
 
 on init
     setprop sys.usb.config mtp,adb
