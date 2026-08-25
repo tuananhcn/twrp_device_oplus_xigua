@@ -47,7 +47,10 @@ on fs
     # mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /vendor/firmware_mnt ro
 
 on init
-    setprop sys.usb.config mtp,adb
+    setprop sys.usb.configfs 1
+    setprop prepdecrypt.setpatch true
+    start vendor.boot-qti
+    start vendor.gatekeeper_default
 #     insmod /vendor/lib/modules/q6_pdr_dlkm.ko
 #     insmod /vendor/lib/modules/q6_notifier_dlkm.ko
 #     insmod /vendor/lib/modules/snd_event_dlkm.ko
