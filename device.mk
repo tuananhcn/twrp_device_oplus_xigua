@@ -47,23 +47,18 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-# Boot control HAL
+# Boot Control HAL (Cơ chế chuyển đổi Slot A/B tiêu chuẩn cho chip Snapdragon 'kalama')
 PRODUCT_PACKAGES += \
-    android.hardware.boot-service
-#     android.hardware.boot-impl \
+    android.hardware.boot-service.qcom \
+    android.hardware.boot-service.qcom-recovery \
+    bootctrl.kalama \
+    bootctrl.kalama.recovery
 
+# Các gói công cụ tối thiểu dành cho phân vùng Dynamic & Giải mã Data
 PRODUCT_PACKAGES += \
-    bootctrl.kalama
+    android.hardware.fastboot@1.1-impl-mock \
+    fastbootd
 
-# PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-#     bootctrl.kalama \
-#     libgptutils \
-#     libz \
-#     libcutils
-
+# Thêm gói thư viện liên kết phân vùng nếu cần thiết để nạp thư viện Oplus
 PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
+    libinit_oplus_xigua
