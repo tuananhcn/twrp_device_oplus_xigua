@@ -88,11 +88,11 @@ BOARD_RAMDISK_USE_LZ4       := true
 # Partitions
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED         := true
 BOARD_RECOVERYIMAGE_PARTITION_SIZE          := 104857600
-BOARD_SUPER_PARTITION_SIZE                  := 9126805504
+BOARD_SUPER_PARTITION_SIZE                  := 16106127360
 BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 9122611200 # TODO: Fix hardcoded value
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 16101933056 # TODO: Fix hardcoded value
 
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_ODM             := odm
@@ -137,7 +137,7 @@ PLATFORM_VERSION                := 99.87.36
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH         := 2099-12-31
 VENDOR_SECURITY_PATCH           := $(PLATFORM_SECURITY_PATCH)
-TW_DEVICE_VERSION               := OPLUS-SM8550
+TW_DEVICE_VERSION               := OPLUS-ACE2PRO-XIGUA
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
