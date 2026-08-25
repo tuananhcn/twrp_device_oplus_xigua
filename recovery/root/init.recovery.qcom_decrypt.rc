@@ -1,0 +1,18 @@
+# Script kích hoạt giải mã bộ nhớ Data mã hóa FBE cho chip Qualcomm
+service gatekeeper-service /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64
+    disabled
+    seclabel u:r:recovery:s0
+
+service keymaster-service /vendor/bin/hw/android.hardware.keymaster@4.1-service
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib64/hw:/system/lib64
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:prepdecrypt.setpatch=true
+    start keymaster-service
+    start gatekeeper-service

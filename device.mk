@@ -61,4 +61,5 @@ PRODUCT_PACKAGES += \
 
 # Thêm gói thư viện liên kết phân vùng nếu cần thiết để nạp thư viện Oplus
 PRODUCT_PACKAGES += \
-    libinit_oplus_xigua
+    libinit_oplus_xigua \
+    vendor.qti.hardware.vibrator.service.oplus
