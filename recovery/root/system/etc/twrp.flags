@@ -1,8 +1,6 @@
 # mount point       fstype      device                                              device2             flags
 
-# Userdata/Metadata partitions
-/metadata           f2fs        /dev/block/bootdevice/by-name/metadata                                  flags=display=Metadata
-/data               f2fs        /dev/block/bootdevice/by-name/userdata                                  flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0
+# Userdata/Metadata partitions are defined in recovery.fstab
 
 # Other partitions
 /boot               emmc        /dev/block/bootdevice/by-name/boot                                      flags=slotselect
