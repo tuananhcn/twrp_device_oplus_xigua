@@ -123,7 +123,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME                := portrait_hdpi
 
 # TWRP file system
-# TARGET_RECOVERY_FSTAB       := $(DEVICE_PATH)/recovery.fstab
+TARGET_RECOVERY_FSTAB       := $(DEVICE_PATH)/recovery.fstab
 RECOVERY_SDCARD_ON_DATA     := true
 TARGET_USES_MKE2FS          := true
 TW_ENABLE_FS_COMPRESSION    := true
@@ -144,7 +144,7 @@ BOARD_AVB_ENABLE := true
 
 # Vibrator
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_CUSTOM_VIBRATOR_PATH       := "/sys/class/leds/vibrator"
+# TW_CUSTOM_VIBRATOR_PATH       := "/sys/class/leds/vibrator"
 
 # Battery
 TW_CUSTOM_BATTERY_PATH        := "/sys/class/power_supply/battery"
