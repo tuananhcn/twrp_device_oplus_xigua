@@ -19,7 +19,7 @@ BUILD_BROKEN_PLUGIN_VALIDATION      := soong-libaosprecovery_defaults soong-libg
 
 # Architecture
 TARGET_ARCH                 := arm64
-TARGET_ARCH_VARIANT         := armv8-a
+TARGET_ARCH_VARIANT         := armv8-2a-dotprod
 TARGET_CPU_ABI              := arm64-v8a
 TARGET_CPU_VARIANT          := generic
 TARGET_CPU_VARIANT_RUNTIME  := kryo300
@@ -93,7 +93,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor 
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 16101933056 # TODO: Fix hardcoded value
 
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4 # erofs
 TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
@@ -123,7 +123,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME                := portrait_hdpi
 
 # TWRP file system
-TARGET_RECOVERY_FSTAB       := $(DEVICE_PATH)/recovery.fstab
+# TARGET_RECOVERY_FSTAB       := $(DEVICE_PATH)/recovery.fstab
 RECOVERY_SDCARD_ON_DATA     := true
 TARGET_USES_MKE2FS          := true
 TW_ENABLE_FS_COMPRESSION    := true
