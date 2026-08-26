@@ -52,7 +52,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot-service.qcom \
     android.hardware.boot-service.qcom-recovery \
     bootctrl.kalama \
-    bootctrl.kalama.recovery
+    bootctrl.kalama.recovery \
+    vendor.qti.hardware.vibrator.service
 
 # Các gói công cụ tối thiểu dành cho phân vùng Dynamic & Giải mã Data
 PRODUCT_PACKAGES += \

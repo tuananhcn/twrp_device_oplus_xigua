@@ -63,6 +63,7 @@ BOARD_USES_METADATA_PARTITION   := true
 TW_INCLUDE_CRYPTO               := true
 TW_INCLUDE_CRYPTO_FBE           := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
+TW_INCLUDE_OMAPI                := true
 
 # Debug
 TARGET_USES_LOGD                := true
@@ -91,9 +92,9 @@ BOARD_SUPER_PARTITION_SIZE                  := 16106127360
 BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 16101933056 # TODO: Fix hardcoded value
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 16101933056 
 
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4 # erofs
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs # erofs
 TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
