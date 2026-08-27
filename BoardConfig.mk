@@ -74,6 +74,7 @@ RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/debuggerd
 RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/strace
 
 # File systems
+# TARGET_RECOVERY_FSTAB       := $(DEVICE_PATH)/recovery.fstab
 TARGET_USERIMAGES_USE_F2FS := true
 TW_USE_DMCTL               := true
 
@@ -94,7 +95,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor 
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 16101933056 
 
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs # erofs
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
@@ -157,10 +158,7 @@ TW_EXCLUDE_APEX                         := true
 TW_EXCLUDE_DEFAULT_USB_INIT             := true
 TW_EXTRA_LANGUAGES                      := true
 TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko"
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := false
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
 TW_NO_SCREEN_BLANK                      := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
 TW_NO_NETWORK                           := true
-
-# Battery
-TW_CUSTOM_BATTERY_PATH        := "/sys/class/power_supply/battery"
