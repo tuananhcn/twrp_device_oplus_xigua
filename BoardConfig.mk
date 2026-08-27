@@ -19,7 +19,7 @@ BUILD_BROKEN_PLUGIN_VALIDATION      := soong-libaosprecovery_defaults soong-libg
 
 # Architecture
 TARGET_ARCH                 := arm64
-TARGET_ARCH_VARIANT         := armv8-a
+TARGET_ARCH_VARIANT         := armv8-2a-dotprod
 TARGET_CPU_ABI              := arm64-v8a
 TARGET_CPU_VARIANT          := generic
 TARGET_CPU_VARIANT_RUNTIME  := kryo300
@@ -93,16 +93,16 @@ BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 16101933056 # TODO: Fix hardcoded value
-
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_COPY_OUT_ODM             := odm
-TARGET_COPY_OUT_VENDOR          := vendor
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE             := ext4
+TARGET_COPY_OUT_ODM                         := odm
+TARGET_COPY_OUT_VENDOR                      := vendor
 
 # Platform
 TARGET_BOARD_PLATFORM   := sm8550
 QCOM_BOARD_PLATFORMS    += sm8550
 
 # Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE    := true
 TARGET_RECOVERY_PIXEL_FORMAT                := RGBX_8888
 TW_INCLUDE_FASTBOOTD                        := true
@@ -147,7 +147,11 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Other TWRP Configurations
 TARGET_RECOVERY_QCOM_RTC_FIX            := true
-TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone45/temp" # CPU-0-0-0
+TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone75/temp"
+TW_POWER_SUPPLY_BATTERY_PATH            := "/sys/class/power_supply/battery"
+TW_USE_BATTERY_SYSFS_STATS              := true
+TW_BATTERY_SYSFS_WAIT_SECONDS           := 8
+TW_USE_LEGACY_BATTERY_SERVICES          := true 
 TW_EXCLUDE_APEX                         := true
 TW_EXCLUDE_DEFAULT_USB_INIT             := true
 TW_EXTRA_LANGUAGES                      := true
