@@ -161,3 +161,6 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := false
 TW_NO_SCREEN_BLANK                      := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
 TW_NO_NETWORK                           := true
+
+# Battery
+TW_CUSTOM_BATTERY_PATH        := "/sys/class/power_supply/battery"
