@@ -61,7 +61,7 @@ TARGET_BOOTLOADER_BOARD_NAME    := kalama
 # Crypto
 BOARD_USES_METADATA_PARTITION   := true
 TW_INCLUDE_CRYPTO               := true
-# TW_INCLUDE_CRYPTO_FBE           := true
+TW_INCLUDE_CRYPTO_FBE           := true
 # TW_INCLUDE_FBE_METADATA_DECRYPT := true
 # TW_INCLUDE_OMAPI                := true
 
