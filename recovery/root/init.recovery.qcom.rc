@@ -1,4 +1,4 @@
-# Copyright (c) 2017-2018,2020-2021 The Linux Foundation. All rights reserved.
+# Copyright (c) 2017-2018,2020 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -25,9 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on init
-    write /sys/class/backlight/panel0-backlight/brightness 200
-    setprop sys.usb.configfs 1
+import /init.recovery.qcom_decrypt.rc
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
@@ -35,6 +33,41 @@ on property:ro.boot.usbcontroller=*
     write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode peripheral
     wait /sys/class/udc/${ro.boot.usbcontroller} 1
 
+on early-fs
+    write /proc/sys/kernel/sched_lib_name "recovery,magiskboot,Updater,updater,update_engine_sideload"
+    write /proc/sys/kernel/sched_lib_mask_force 255
+
 on fs
+    export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    setprop ro.separate.soft ${ro.boot.prjname}
+    # Mount firmware
+    mkdir /vendor/firmware_mnt
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /vendor/firmware_mnt ro
+
+on init
+    setprop sys.usb.config mtp,adb
+#     insmod /vendor/lib/modules/q6_pdr_dlkm.ko
+#     insmod /vendor/lib/modules/q6_notifier_dlkm.ko
+#     insmod /vendor/lib/modules/snd_event_dlkm.ko
+#     insmod /vendor/lib/modules/gpr_dlkm.ko
+#     insmod /vendor/lib/modules/spf_core_dlkm.ko
+#     insmod /vendor/lib/modules/adsp_loader_dlkm.ko
+
+on property:twrp.modules.loaded=true
+    # Load ADSP firmware for PMIC
+    wait /sys/kernel/boot_adsp/boot
+    write /sys/kernel/boot_adsp/boot 1
+    wait /sys/class/power_supply/battery
+    write /sys/class/oplus_chg/usb/otg_switch 1
+
+on boot
+    start vendor.health-recovery
+    start health-hal-2-1
+    #Gerry.ding@BSP.CHG.Basic, 2021/09/28,Add for charge in recovery mode
+    write /proc/sys/kernel/firmware_config/force_sysfs_fallback 1
+    umount /firmware
+
+on post-fs
+    start boot-hal-1-2

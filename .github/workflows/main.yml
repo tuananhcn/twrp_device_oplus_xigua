@@ -168,14 +168,12 @@ jobs:
         export CCACHE_MAXSIZE=5G
         export USE_CCACHE=1
         lunch ${{ env.LUNCH_TARGET }}
+        # (while true; do echo `date +%T` "Building TWRP..."; free -h; df -h / | tail -1; ps -eo pid,comm,%mem,%cpu --sort=-%mem | head -n 8; sleep 60; done) &
         (while true; do echo `date +%T` "Building TWRP..."; free -h; sleep 10; done) &
         TIP_PID=$!
         m -j$JOBS ${{ github.event.inputs.BUILD_PARTITION }}image
-        # show what was produced
-        echo "Listing device output dir:"
-        ls -la out/target/product/${{ github.event.inputs.DEVICE_NAME }} || true
-        echo "Images present:"
-        ls -la out/target/product/${{ github.event.inputs.DEVICE_NAME }}/*.img || true
+        # kill $TIP_PID
+        # mv out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_PARTITION }}.img out/target/product/${{ github.event.inputs.DEVICE_NAME }}/TWRP-3.7.1-16-${{ github.event.inputs.DEVICE_NAME }}-${{ env.BUILD_DATE }}.img
         mv out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_PARTITION }}.img out/target/product/${{ github.event.inputs.DEVICE_NAME }}/TWRP-3.7.1-16-${{ github.event.inputs.DEVICE_NAME }}-${{ env.BUILD_DATE }}.img
         kill $TIP_PID && exit 0
     - name: Upload build logs
