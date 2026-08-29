@@ -31,21 +31,18 @@ TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 # A/B
+AB_OTA_UPDATER := true
+
 AB_OTA_PARTITIONS := \
                      boot \
-                     init_boot \
                      vendor_boot \
+                     recovery \
+                     vendor_dlkm \
                      dtbo \
-                     odm \
-                     product \
-                     system \
-                     system_ext \
-                     system_dlkm \
                      vbmeta \
-                     vbmeta_system \
-                     vbmeta_vendor \
-                     vendor \
-                     vendor_dlkm
+                     super \
+                     init_boot \
+                     system_dlkm
 
 # AB partitions for oplus
 AB_OTA_PARTITIONS += \
@@ -95,8 +92,8 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 # Partitions
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
-
+# BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
 BOARD_SUPER_PARTITION_SIZE := 16106127360
 BOARD_SUPER_PARTITION_GROUPS := oplus_dynamic_partitions
 BOARD_OPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm my_product my_engineering my_company my_carrier my_region my_heytap my_stock my_preload my_manifest
