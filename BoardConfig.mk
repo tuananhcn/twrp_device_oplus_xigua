@@ -15,7 +15,6 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_oplus_xigua
 ALLOW_MISSING_DEPENDENCIES := true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-
 BUILD_BROKEN_NINJA_USES_ENV_VARS += RTIC_MPGEN
 BUILD_BROKEN_PLUGIN_VALIDATION := \
                                   soong-libaosprecovery_defaults \
@@ -32,13 +31,34 @@ TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
 # A/B
-AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
-                     system \
-                     vendor \
-                     product \
+AB_OTA_PARTITIONS := \
+                     boot \
+                     init_boot \
+                     vendor_boot \
+                     dtbo \
                      odm \
-                     system_ext
+                     product \
+                     system \
+                     system_ext \
+                     system_dlkm \
+                     vbmeta \
+                     vbmeta_system \
+                     vbmeta_vendor \
+                     vendor \
+                     vendor_dlkm
+
+# AB partitions for oplus
+AB_OTA_PARTITIONS += \
+                     my_bigball \
+                     my_carrier \
+                     my_company \
+                     my_engineering \
+                     my_heytap \
+                     my_manifest \
+                     my_preload \
+                     my_product \
+                     my_region \
+                     my_stock
 
 # Bootloader
 PRODUCT_PLATFORM := kalama
@@ -70,19 +90,18 @@ BOARD_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
+
 BOARD_RAMDISK_USE_LZ4 := true
 
 # Partitions
-# BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED      := true
-BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
+
 BOARD_SUPER_PARTITION_SIZE := 16106127360
 BOARD_SUPER_PARTITION_GROUPS := oplus_dynamic_partitions
 BOARD_OPLUS_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm my_product my_engineering my_company my_carrier my_region my_heytap my_stock my_preload my_manifest
 BOARD_OPLUS_DYNAMIC_PARTITIONS_SIZE := 16101933056
+
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_VENDOR := vendor
@@ -93,11 +112,9 @@ QCOM_BOARD_PLATFORMS += sm8550
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
-# BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_USES_RECOVERY_AS_BOOT := false
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TW_INCLUDE_FASTBOOTD := true
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
 
 # Tool
 TW_ENABLE_ALL_PARTITION_TOOLS := true
@@ -110,7 +127,7 @@ TW_INCLUDE_ZSTD := true
 # TWRP display
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel0-backlight/brightness
 TW_DEFAULT_BRIGHTNESS := 1000
-TW_FRAMERATE := 60
+TW_FRAMERATE := 120
 TW_MAX_BRIGHTNESS := 2047
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME := portrait_hdpi
@@ -139,11 +156,7 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Other TWRP Configurations
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone75/temp"
-TW_POWER_SUPPLY_BATTERY_PATH := "/sys/class/power_supply/battery"
-TW_USE_BATTERY_SYSFS_STATS := true
-TW_BATTERY_SYSFS_WAIT_SECONDS := 8
-TW_USE_LEGACY_BATTERY_SERVICES := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone45/temp" # CPU-0-0-0
 TW_EXCLUDE_APEX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
@@ -152,4 +165,3 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TW_NO_SCREEN_BLANK := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 TW_NO_NETWORK := true
-TW_OZIP_DECRYPT_KEY := "0"

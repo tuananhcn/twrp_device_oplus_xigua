@@ -29,8 +29,8 @@ PRODUCT_TARGET_VNDK_VERSION := 33
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Kernel
-# PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
-# PRODUCT_ENABLE_UFFD_GC := true
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+PRODUCT_ENABLE_UFFD_GC := true
 
 # OTA certs
 PRODUCT_EXTRA_RECOVERY_KEYS += \
@@ -38,27 +38,3 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
-
-# LOCAL_PATH := device/oneplus/xigua
-# A/B
-# AB_OTA_POSTINSTALL_CONFIG += \
-#     RUN_POSTINSTALL_system=true \
-#     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-#     FILESYSTEM_TYPE_system=ext4 \
-#     POSTINSTALL_OPTIONAL_system=true
-
-# Boot Control HAL (Cơ chế chuyển đổi Slot A/B tiêu chuẩn cho chip Snapdragon 'kalama')
-# PRODUCT_PACKAGES += \
-#     android.hardware.boot-service.qcom \
-#     android.hardware.boot-service.qcom-recovery \
-#     bootctrl.kalama \
-#     bootctrl.kalama.recovery
-
-# Các gói công cụ tối thiểu dành cho phân vùng Dynamic & Giải mã Data
-# PRODUCT_PACKAGES += \
-#     android.hardware.fastboot@1.1-impl-mock \
-#     fastbootd
-
-# Thêm gói thư viện liên kết phân vùng nếu cần thiết để nạp thư viện Oplus
-PRODUCT_PACKAGES += \
-                    libinit_oplus_xigua
