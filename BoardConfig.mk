@@ -5,6 +5,8 @@
 # # SPDX-License-Identifier: Apache-2.0
 # #
 
+DEVICE_PATH := device/oplus/xigua
+
 # # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_oplus_xigua
 TARGET_RECOVERY_DEVICE_MODULES := libinit_oplus_xigua
