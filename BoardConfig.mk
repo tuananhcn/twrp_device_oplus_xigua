@@ -59,22 +59,22 @@ PRODUCT_PLATFORM                := kalama
 TARGET_BOOTLOADER_BOARD_NAME    := kalama
 
 # Crypto
-BOARD_USES_METADATA_PARTITION := true
-BOARD_USES_QCOM_FBE_DECRYPTION := true
+# BOARD_USES_METADATA_PARTITION := true
+# BOARD_USES_QCOM_FBE_DECRYPTION := true
 
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
-TW_USE_FSCRYPT_POLICY := 2
-TW_CRYPTO_USE_VENDOR_KEYMINT := true
+# TW_INCLUDE_CRYPTO := true
+# TW_INCLUDE_CRYPTO_FBE := true
+# TW_INCLUDE_FBE_METADATA_DECRYPT := true
+# TW_USE_FSCRYPT_POLICY := 2
+# TW_CRYPTO_USE_VENDOR_KEYMINT := true
 
 # Debug
-TARGET_USES_LOGD                := true
-TWRP_INCLUDE_LOGCAT             := true
-TARGET_RECOVERY_DEVICE_MODULES  += debuggerd
-TARGET_RECOVERY_DEVICE_MODULES  += strace
-RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/debuggerd
-RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/strace
+# TARGET_USES_LOGD                := true
+# TWRP_INCLUDE_LOGCAT             := true
+# TARGET_RECOVERY_DEVICE_MODULES  += debuggerd
+# TARGET_RECOVERY_DEVICE_MODULES  += strace
+# RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/debuggerd
+# RECOVERY_BINARY_SOURCE_FILES    += $(TARGET_OUT_EXECUTABLES)/strace
 
 # File systems
 TARGET_USERIMAGES_USE_F2FS := true
@@ -143,19 +143,19 @@ VENDOR_SECURITY_PATCH           := $(PLATFORM_SECURITY_PATCH)
 TW_DEVICE_VERSION               := OPLUS-ACE2PRO-XIGUA
 
 # Verified Boot
-BOARD_AVB_ENABLE := true
+# BOARD_AVB_ENABLE := true
 
 # Vibrator
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Other TWRP Configurations
-TARGET_RECOVERY_QCOM_RTC_FIX            := true
-TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone45/temp" # CPU-0-0-0
-TW_EXCLUDE_APEX                         := true
-TW_EXCLUDE_DEFAULT_USB_INIT             := true
-TW_EXTRA_LANGUAGES                      := true
-TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko"
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
-TW_NO_SCREEN_BLANK                      := true
-TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
-TW_NO_NETWORK                           := true
+# TARGET_RECOVERY_QCOM_RTC_FIX            := true
+# TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone45/temp" # CPU-0-0-0
+# TW_EXCLUDE_APEX                         := true
+# TW_EXCLUDE_DEFAULT_USB_INIT             := true
+# TW_EXTRA_LANGUAGES                      := true
+# TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko"
+# TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
+# TW_NO_SCREEN_BLANK                      := true
+# TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
+# TW_NO_NETWORK                           := true
