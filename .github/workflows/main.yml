@@ -18,19 +18,19 @@ on:
       DEVICE_TREE_BRANCH:
         description: "Device tree branch"
         required: true
-        default: "xigua"
+        default: "ossi"
       DEVICE_PATH:
         description: "Device path device/"
         required: true
-        default: "oplus/xigua"
+        default: "oplus/ossi"
       DEVICE_NAME:
         description: "Device name"
         required: true
-        default: "xigua"
+        default: "ossi"
       LUNCH_TARGET:
         description: "Full lunch target"
         required: false
-        default: "twrp_xigua"
+        default: "twrp_ossi"
       BUILD_PARTITION:
         description: "Build partition"
         required: true

@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_xigua.mk
+    $(LOCAL_DIR)/twrp_ossi.mk
 
 # COMMON_LUNCH_CHOICES := \
-#     twrp_xigua-user \
-#     twrp_xigua-userdebug \
-#     twrp_xigua-eng
+#     twrp_ossi-user \
+#     twrp_ossi-userdebug \
+#     twrp_ossi-eng
